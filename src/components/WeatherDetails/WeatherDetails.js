@@ -11,7 +11,7 @@ const WeatherDetails = ({ data }) => {
     const windDirection = arrow.current;
     const tl = gsap.timeline();
 
-    const getRandomDirection = () => Math.floor(Math.random() * 150 + 50);
+    const getRandomDirection = () => Math.floor(Math.random() * 150 + 75);
 
     tl.to(windDirection, {
       duration: 1,

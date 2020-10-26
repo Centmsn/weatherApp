@@ -23,6 +23,25 @@ const Footer = () => {
           www.flaticon.com
         </a>
       </span>
+      <span className="footer__small-text">
+        Icons made by{" "}
+        <a
+          className="footer__link"
+          href="https://www.flaticon.com/authors/becris"
+          title="Becris"
+        >
+          Becris
+        </a>{" "}
+        from{" "}
+        <a
+          className="footer__link"
+          href="https://www.flaticon.com/"
+          title="Flaticon"
+        >
+          {" "}
+          www.flaticon.com
+        </a>
+      </span>
     </div>
   );
 };

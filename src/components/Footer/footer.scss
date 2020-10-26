@@ -4,14 +4,15 @@
   flex-wrap: wrap;
   height: 5vh;
   max-height: 100px;
-  color: gray;
+  color: rgb(199, 199, 199);
 
   &__link {
     text-decoration: none;
-    color: gray;
+    color: rgb(197, 196, 196);
   }
 
   &__small-text {
     flex-basis: 100%;
+    font-size: 0.7rem;
   }
 }
