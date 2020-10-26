@@ -1,7 +1,9 @@
 import React from "react";
 
+import "./hourlyweather.css";
+
 const HourlyWeather = () => {
-  return <div>pogoda godzinowa</div>;
+  return <div className="hourly-weather">pogoda godzinowa</div>;
 };
 
 export default HourlyWeather;

@@ -1,12 +1,12 @@
 import React from "react";
 
-import SearchContext from "../../context/SearchContext";
 import openWeather from "../../api/openWeather";
+import { openWeatherKey } from "../../api/keys";
 import { ReactComponent as Scene } from "../../assets/error.svg";
 
 import "./error.css";
 
-const Error = ({ location }) => {
+const Error = ({ fetch }) => {
   const error = (err) => {
     console.log(err);
   };
@@ -16,7 +16,7 @@ const Error = ({ location }) => {
 
     openWeather
       .get(
-        `data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=b7238569c5de7a001ca295ee92e8c746`
+        `data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${openWeatherKey}`
       )
       .then((response) => {
         console.log(response);

@@ -1,7 +1,17 @@
 import React from "react";
 
-const LocationInfo = () => {
-  return <div>informacje o lokacji</div>;
+import "./locationinfo.css";
+
+const LocationInfo = ({ data }) => {
+  const { name, country } = data;
+
+  return (
+    <div className="location-info">
+      <span>
+        {name}, {country.toUpperCase()}
+      </span>
+    </div>
+  );
 };
 
 export default LocationInfo;

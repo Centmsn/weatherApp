@@ -6,6 +6,7 @@ import WeatherContainer from "../WeatherContainer/WeatherContainer";
 
 import { SearchStore } from "../../context/SearchContext";
 import openWeather from "../../api/openWeather";
+import { openWeatherKey } from "../../api/keys";
 
 import "./app.css";
 
@@ -14,14 +15,12 @@ const App = () => {
   const [error, setError] = useState(null);
 
   const fetchWeather = (value) => {
+    setWeatherData({});
+    setError(null);
     openWeather
-      .get(
-        `data/2.5/forecast?q=${value}&units=metric&appid=b7238569c5de7a001ca295ee92e8c746`
-      )
+      .get(`data/2.5/forecast?q=${value}&units=metric&appid=${openWeatherKey}`)
       .then((response) => {
         setWeatherData(response.data);
-        console.log(response.data);
-        setError(null);
       })
       .catch((err) => {
         setError(err);

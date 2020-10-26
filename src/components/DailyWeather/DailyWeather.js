@@ -1,7 +1,9 @@
 import React from "react";
 
+import "./dailyweather.css";
+
 const DailyWeather = () => {
-  return <div>pogoda dzienna</div>;
+  return <div className="daily-weather">pogoda dzienna</div>;
 };
 
 export default DailyWeather;
