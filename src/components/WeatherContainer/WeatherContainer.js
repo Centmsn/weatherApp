@@ -1,7 +1,6 @@
 import React from "react";
 
 import DailyWeather from "../DailyWeather/DailyWeather";
-import HourlyWeather from "../HourlyWeather/HourlyWeather";
 import LocationInfo from "../LocationInfo/LocationInfo";
 import WeatherDetails from "../WeatherDetails/WeatherDetails";
 import Spinner from "../Spinner/Spinner";
@@ -16,7 +15,6 @@ const WeatherContainer = ({ data, error }) => {
         <>
           <LocationInfo data={data.city} />
           <WeatherDetails data={data.list} />
-          <HourlyWeather data={data.list} />
           <DailyWeather data={data.list} />
         </>
       );

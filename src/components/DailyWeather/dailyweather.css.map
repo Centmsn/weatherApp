@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,cAAc,AAAC,CACb,UAAU,CAAE,IAAI,CACjB",
+    "mappings": "AAAA,AAAA,cAAc,AAAC,CACb,UAAU,CAAE,IAAI,CAEhB,MAAM,CAAE,GAAG,CACX,OAAO,CAAE,IAAI,CACb,SAAS,CAAE,IAAI,CAChB,AAED,AAAA,aAAa,AAAC,CACZ,UAAU,CAAE,GAAG,CAChB",
     "sources": [
         "dailyweather.scss"
     ],

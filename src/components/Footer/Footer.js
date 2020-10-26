@@ -5,7 +5,6 @@ import "./footer.css";
 const Footer = () => {
   return (
     <div className="footer">
-      <span className="footer__small-text">&#169;2020 Wojciech Rygorowicz</span>
       <span className="footer__small-text">
         Icons made by{" "}
         <a

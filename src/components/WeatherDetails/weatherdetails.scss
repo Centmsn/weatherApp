@@ -5,12 +5,22 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  // background-color: rgb(255, 196, 252);
+  // border-bottom: 2px solid black;
+  // border-left: 2px solid black;
+
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 10px;
 
   &__desc {
     flex-basis: 50%;
+    height: 100%;
 
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+
+    padding-left: 10px;
   }
 
   &__info {
@@ -31,5 +41,10 @@
       height: 25px;
       width: 25%;
     }
+  }
+
+  &__svg {
+    margin: 0 auto;
+    display: block;
   }
 }

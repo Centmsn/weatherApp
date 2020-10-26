@@ -1,3 +1,11 @@
 .daily-weather {
   flex-basis: 100%;
+
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.weather-card {
+  flex-basis: 20%;
 }

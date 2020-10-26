@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 import { ReactComponent as Scene } from "../../assets/windArrow.svg";
-import { ReactComponent as Wind } from "../../assets/wind.svg";
 import "./weatherdetails.css";
 
 const WeatherDetails = ({ data }) => {
@@ -12,14 +11,12 @@ const WeatherDetails = ({ data }) => {
     const windDirection = arrow.current;
     const tl = gsap.timeline();
 
-    const getRandomDirection = () => Math.random() * 150 + 50;
+    const getRandomDirection = () => Math.floor(Math.random() * 150 + 50);
 
     tl.to(windDirection, {
       duration: 1,
       rotation: getRandomDirection,
-    })
-      .to(windDirection, { duration: 0.5, getRandomDirection })
-      .to(windDirection, { duration: 1, rotation: data[0].wind.deg });
+    }).to(windDirection, { duration: 1, rotation: data[0].wind.deg });
   }, []);
 
   const renderDetails = () => {
@@ -43,7 +40,7 @@ const WeatherDetails = ({ data }) => {
           </span>
         </div>
         <div className="weather-details__icon">
-          <Scene ref={arrow} />
+          <Scene ref={arrow} className="weather-details__svg" />
         </div>
       </>
     );
