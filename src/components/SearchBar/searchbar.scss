@@ -1,0 +1,44 @@
+.search-bar {
+  flex-basis: 45%;
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__input,
+  &__btn {
+    font-size: 1.5rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 4px 10px;
+    outline: none;
+  }
+
+  &__input {
+    width: 75%;
+
+    &:focus {
+      background-color: rgb(224, 216, 224);
+    }
+  }
+
+  &__btn {
+    background: none;
+    transition: 300ms;
+    width: 20%;
+    background-color: black;
+    color: white;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+
+  &__info {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,17 @@
+.footer {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 5vh;
+  max-height: 100px;
+  color: gray;
+
+  &__link {
+    text-decoration: none;
+    color: gray;
+  }
+
+  &__small-text {
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,AAAC,CACP,QAAQ,CAAE,QAAQ,CAElB,GAAG,CAAE,GAAG,CACR,IAAI,CAAE,GAAG,CACT,SAAS,CAAE,qBAAqB,CAChC,KAAK,CAAE,GAAG,CACX",
+    "sources": [
+        "spinner.scss"
+    ],
+    "names": [],
+    "file": "spinner.css"
+}
