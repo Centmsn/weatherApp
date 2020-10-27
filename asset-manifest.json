@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/weatherApp/static/css/main.7219d1c3.chunk.css",
+    "main.css": "/weatherApp/static/css/main.8270d978.chunk.css",
     "main.js": "/weatherApp/static/js/main.24ad2d17.chunk.js",
     "main.js.map": "/weatherApp/static/js/main.24ad2d17.chunk.js.map",
     "runtime-main.js": "/weatherApp/static/js/runtime-main.2caaf024.js",
@@ -8,7 +8,7 @@
     "static/js/2.3dac022b.chunk.js": "/weatherApp/static/js/2.3dac022b.chunk.js",
     "static/js/2.3dac022b.chunk.js.map": "/weatherApp/static/js/2.3dac022b.chunk.js.map",
     "index.html": "/weatherApp/index.html",
-    "static/css/main.7219d1c3.chunk.css.map": "/weatherApp/static/css/main.7219d1c3.chunk.css.map",
+    "static/css/main.8270d978.chunk.css.map": "/weatherApp/static/css/main.8270d978.chunk.css.map",
     "static/js/2.3dac022b.chunk.js.LICENSE.txt": "/weatherApp/static/js/2.3dac022b.chunk.js.LICENSE.txt",
     "static/media/error.b6eecb3b.svg": "/weatherApp/static/media/error.b6eecb3b.svg",
     "static/media/leftArrow.8d435aeb.svg": "/weatherApp/static/media/leftArrow.8d435aeb.svg",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.2caaf024.js",
     "static/js/2.3dac022b.chunk.js",
-    "static/css/main.7219d1c3.chunk.css",
+    "static/css/main.8270d978.chunk.css",
     "static/js/main.24ad2d17.chunk.js"
   ]
 }
