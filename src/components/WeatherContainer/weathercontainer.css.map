@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,kBAAkB,AAAC,CACjB,UAAU,CAAE,GAAG,CACf,MAAM,CAAE,IAAI,CAEZ,MAAM,CAAE,eAAe,CACvB,aAAa,CAAE,IAAI,CACnB,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,CAAC,CACV,SAAS,CAAE,QAAQ,CAEnB,OAAO,CAAE,IAAI,CACb,SAAS,CAAE,IAAI,CACf,gBAAgB,CAAE,uBAA0B,CAC7C",
+    "mappings": "AAEA,AAAA,kBAAkB,AAAC,CACjB,UAAU,CAAE,GAAG,CACf,MAAM,CAAE,IAAI,CAEZ,UAAU,CAAE,KAAK,CACjB,SAAS,CAAE,MAAM,CAEjB,UAAU,CAAE,iBAAiB,CAC7B,aAAa,CAAE,IAAI,CACnB,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,CAAC,CACV,SAAS,CAAE,QAAQ,CAEnB,OAAO,CAAE,IAAI,CACb,SAAS,CAAE,IAAI,CACf,gBAAgB,CAAE,uBAA0B,CAC7C",
     "sources": [
-        "weathercontainer.scss"
+        "weathercontainer.scss",
+        "../../sass/_variables.scss"
     ],
     "names": [],
     "file": "weathercontainer.css"

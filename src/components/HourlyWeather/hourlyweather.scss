@@ -1,3 +1,5 @@
+@import "../../sass/variables";
+
 .hourly-weather {
   position: absolute;
   flex-basis: 100%;
@@ -14,15 +16,29 @@
     background: none;
     border: none;
     outline: none;
-    transition: 300ms;
     cursor: pointer;
 
     &:hover {
-      background-color: white;
+      background-color: lighten($blue, 15%);
     }
   }
 
   &__forecast {
     flex-basis: 10%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
+
+  &__text {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  &__text--bold {
+    font-weight: 700;
   }
 }

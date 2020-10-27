@@ -5,6 +5,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import WeatherContainer from "../WeatherContainer/WeatherContainer";
 
 import { SearchStore } from "../../context/SearchContext";
+import { DegreeStore } from "../../context/DegreeContext";
 import openWeather from "../../api/openWeather";
 import { openWeatherKey } from "../../api/keys";
 
@@ -54,9 +55,11 @@ const App = () => {
       style={{ backgroundImage: `url(${setBgImg()})` }}
     >
       <SearchStore>
-        <SearchBar fetchWeather={fetchWeather} />
-        <WeatherContainer data={weatherData} error={error} />
-        <Footer />
+        <DegreeStore>
+          <SearchBar fetchWeather={fetchWeather} />
+          <WeatherContainer data={weatherData} error={error} />
+          <Footer />
+        </DegreeStore>
       </SearchStore>
     </div>
   );

@@ -69,12 +69,16 @@ const DailyWeather = ({ data }) => {
             <div>
               <img
                 src={`http://openweathermap.org/img/wn/${day.forecast[num].weather[0].icon}@2x.png`}
-                alt=""
+                alt="weather icon"
               />
             </div>
             <div className="weather-card__temp">
               {day.forecast[num].main.temp.toFixed(1)}
               <sup>o</sup>C
+            </div>
+
+            <div className="weather-card__press">
+              {day.forecast[num].main.pressure}hPa
             </div>
           </div>
           <HourlyWeahter
@@ -107,20 +111,15 @@ const DailyWeather = ({ data }) => {
 
   const toggleListVisibility = (e, index) => {
     const daily = dailyForecast.current;
-    const tl = gsap.timeline();
 
     const cards = [...daily.children].filter((card) =>
       card.classList.contains("weather-card")
     );
 
-    tl.to(cards, {
+    gsap.to(cards, {
       stagger: 0.1,
       autoAlpha: 0,
       duration: 0.1,
-      ease: "none",
-    }).to(daily, {
-      x: "100vw",
-      duration: 0,
       ease: "none",
     });
 

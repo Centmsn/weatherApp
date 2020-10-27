@@ -1,11 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import gsap from "gsap";
 
+import { degreeConverter } from "../../helpers";
+import DegreeContext from "../../context/DegreeContext";
 import { ReactComponent as Scene } from "../../assets/windArrow.svg";
 import "./weatherdetails.css";
 
 const WeatherDetails = ({ data }) => {
   const arrow = useRef(null);
+  const { degrees } = useContext(DegreeContext);
 
   useEffect(() => {
     const windDirection = arrow.current;
@@ -22,12 +25,15 @@ const WeatherDetails = ({ data }) => {
   const renderDetails = () => {
     const current = data[0];
 
+    const temp = degreeConverter(degrees, current.main.temp);
+
     return (
       <>
         <div className="weather-details__desc">
           <span className="weather-details__info">
-            Temperature: {current.main.temp.toFixed(1)}
-            <sup>o</sup>C
+            Temperature: {temp.toFixed(1)}
+            <sup>o</sup>
+            {degrees ? "C" : "F"}
           </span>
           <span className="weather-details__info">
             Pressue: {current.main.pressure}hPa

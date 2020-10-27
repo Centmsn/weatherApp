@@ -4,7 +4,24 @@
   font-size: 1.25rem;
   height: 50%;
 
-  &__text {
-    display: block;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__box {
+    flex-basis: 100%;
+  }
+
+  &__box--bottom {
+    align-self: flex-end;
+  }
+
+  &__btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+    }
   }
 }

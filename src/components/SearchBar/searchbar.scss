@@ -1,3 +1,5 @@
+@import "../../sass/variables";
+
 .search-bar {
   flex-basis: 45%;
 
@@ -17,9 +19,10 @@
 
   &__input {
     width: 75%;
+    background-color: rgba(255, 255, 255, 0.507);
 
     &:focus {
-      background-color: rgb(224, 216, 224);
+      background-color: lighten($blue, 15%);
     }
   }
 
@@ -27,14 +30,13 @@
     background: none;
     transition: 300ms;
     width: 20%;
-    background-color: black;
+    background-color: darken($blue, 30%);
     color: white;
 
     cursor: pointer;
 
     &:hover {
-      background-color: white;
-      color: black;
+      background-color: fade-out($blue, 0.2);
     }
   }
 
