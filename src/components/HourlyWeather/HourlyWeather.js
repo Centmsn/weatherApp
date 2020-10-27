@@ -1,12 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import gsap from "gsap";
 
+import DegreeContext from "../../context/DegreeContext";
+import { degreeConverter } from "../../helpers";
 import { ReactComponent as Scene } from "../../assets/leftArrow.svg";
 
 import "./hourlyweather.css";
 
 const HourlyWeather = ({ toggleVisibility, active, index, data }) => {
-  console.log(data);
+  const { degrees } = useContext(DegreeContext);
   const hourlyWeather = useRef(null);
 
   const renderHourlyForecast = () => {
@@ -19,28 +21,36 @@ const HourlyWeather = ({ toggleVisibility, active, index, data }) => {
       }
     }
 
-    return data.forecast.map((element) => (
-      <div className="hourly-weather__forecast" key={element.dt}>
-        <span className="hourly-weather__text">
-          <img
-            src={`http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png`}
-            alt="weather icon"
-          />
-        </span>
-        <span className="hourly-weather__text--bold">
-          {element.dt_txt.slice(10, -3)}
-        </span>
-        <span className="hourly-weather__text">
-          {element.main.temp.toFixed(1)}
-          <sup>o</sup>C
-        </span>
-        <span className="hourly-weather__text">
-          Feels like:
-          <br /> {element.main.feels_like.toFixed(1)}
-          <sup>o</sup>C
-        </span>
-      </div>
-    ));
+    return data.forecast.map((element) => {
+      const temp = degreeConverter(degrees, element.main.temp);
+      const feelsLike = degreeConverter(degrees, element.main.feels_like);
+      const deg = degrees ? "C" : "F";
+
+      return (
+        <div className="hourly-weather__forecast" key={element.dt}>
+          <span className="hourly-weather__text">
+            <img
+              src={`http://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png`}
+              alt="weather icon"
+            />
+          </span>
+          <span className="hourly-weather__text--bold">
+            {element.dt_txt.slice(10, -3)}
+          </span>
+          <span className="hourly-weather__text">
+            {temp.toFixed(1)}
+            <sup>o</sup>
+            {deg}
+          </span>
+          <span className="hourly-weather__text">
+            Feels like:
+            <br /> {feelsLike.toFixed(1)}
+            <sup>o</sup>
+            {deg}
+          </span>
+        </div>
+      );
+    });
   };
 
   const visibility = active[index]

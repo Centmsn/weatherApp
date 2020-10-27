@@ -8,7 +8,7 @@ import Error from "../Error/Error";
 
 import "./weathercontainer.css";
 
-const WeatherContainer = ({ data, error }) => {
+const WeatherContainer = ({ data, error, fetch }) => {
   const renderData = () => {
     if (data.cod === "200" && !error) {
       return (
@@ -19,7 +19,7 @@ const WeatherContainer = ({ data, error }) => {
         </>
       );
     } else {
-      return <Error />;
+      return <Error fetch={fetch} />;
     }
   };
 

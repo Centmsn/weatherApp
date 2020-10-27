@@ -57,7 +57,11 @@ const App = () => {
       <SearchStore>
         <DegreeStore>
           <SearchBar fetchWeather={fetchWeather} />
-          <WeatherContainer data={weatherData} error={error} />
+          <WeatherContainer
+            data={weatherData}
+            error={error}
+            fetch={fetchWeather}
+          />
           <Footer />
         </DegreeStore>
       </SearchStore>

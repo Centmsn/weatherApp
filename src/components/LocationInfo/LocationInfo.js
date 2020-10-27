@@ -14,7 +14,8 @@ const LocationInfo = ({ data }) => {
       <div className="location-info">
         <div className="location-info__box">
           <span>
-            {name}, {country.toUpperCase()}
+            <span className="location-info__name">{name}</span>,{" "}
+            {country.toUpperCase()}
           </span>
           <br />
           <span>{new Date().toLocaleDateString()}</span>

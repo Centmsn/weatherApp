@@ -1,6 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import gsap from "gsap";
 
+import DegreeContext from "../../context/DegreeContext";
+import { degreeConverter } from "../../helpers";
 import HourlyWeahter from "../HourlyWeather/HourlyWeather";
 
 import "./dailyweather.css";
@@ -16,6 +18,7 @@ const days = [
 ];
 
 const DailyWeather = ({ data }) => {
+  const { degrees } = useContext(DegreeContext);
   const [hourlyListVisibility, setHourlyListVisiblity] = useState({
     0: false,
     1: false,
@@ -53,6 +56,8 @@ const DailyWeather = ({ data }) => {
       const dayOfTheWeek =
         days[new Date(day.forecast[0].dt_txt.slice(0, 10)).getDay()];
 
+      const temp = degreeConverter(degrees, day.forecast[num].main.temp);
+
       return (
         <>
           <div
@@ -73,8 +78,9 @@ const DailyWeather = ({ data }) => {
               />
             </div>
             <div className="weather-card__temp">
-              {day.forecast[num].main.temp.toFixed(1)}
-              <sup>o</sup>C
+              {temp.toFixed(1)}
+              <sup>o</sup>
+              {degrees ? "C" : "F"}
             </div>
 
             <div className="weather-card__press">

@@ -31,18 +31,22 @@ const WeatherDetails = ({ data }) => {
       <>
         <div className="weather-details__desc">
           <span className="weather-details__info">
-            Temperature: {temp.toFixed(1)}
+            <span className="weather-details__important">Temperature:</span>{" "}
+            {temp.toFixed(1)}
             <sup>o</sup>
             {degrees ? "C" : "F"}
           </span>
           <span className="weather-details__info">
-            Pressue: {current.main.pressure}hPa
+            <span className="weather-details__important">Pressure:</span>{" "}
+            {current.main.pressure}hPa
           </span>
           <span className="weather-details__info">
-            Clouds: {current.clouds.all}% of the sky
+            <span className="weather-details__important">Clouds:</span>{" "}
+            {current.clouds.all}% of the sky
           </span>
           <span className="weather-details__info">
-            Wind speed: {current.wind.speed}km/h
+            <span className="weather-details__important">Wind speed:</span>{" "}
+            {current.wind.speed}km/h
           </span>
         </div>
         <div className="weather-details__icon">
