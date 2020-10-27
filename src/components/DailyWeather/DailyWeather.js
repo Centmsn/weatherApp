@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef, useContext, Fragment } from "react";
 import gsap from "gsap";
 
 import DegreeContext from "../../context/DegreeContext";
@@ -59,24 +59,27 @@ const DailyWeather = ({ data }) => {
       const temp = degreeConverter(degrees, day.forecast[num].main.temp);
 
       return (
-        <>
+        <Fragment key={index}>
           <div
             key={day.forecast[num].dt}
             className="weather-card"
             onClick={(e) => toggleListVisibility(e, index)}
           >
             <div className="weather-card__day">{dayOfTheWeek}</div>
+
             <div className="weather-card__date">
               {new Date(day.forecast[0].dt_txt.slice(5, 10))
                 .toLocaleDateString()
                 .slice(0, 5)}
             </div>
+
             <div>
               <img
                 src={`http://openweathermap.org/img/wn/${day.forecast[num].weather[0].icon}@2x.png`}
                 alt="weather icon"
               />
             </div>
+
             <div className="weather-card__temp">
               {temp.toFixed(1)}
               <sup>o</sup>
@@ -110,7 +113,7 @@ const DailyWeather = ({ data }) => {
             index={index}
             data={forecast[index]}
           />
-        </>
+        </Fragment>
       );
     });
   };

@@ -7,7 +7,6 @@ import "./locationinfo.css";
 const LocationInfo = ({ data }) => {
   const { degrees, switchDegrees } = useContext(DegreeContext);
   const { name, country } = data;
-  console.log(degrees);
 
   return (
     <>

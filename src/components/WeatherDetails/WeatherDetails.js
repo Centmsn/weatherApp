@@ -20,7 +20,7 @@ const WeatherDetails = ({ data }) => {
       duration: 1,
       rotation: getRandomDirection,
     }).to(windDirection, { duration: 1, rotation: data[0].wind.deg });
-  }, []);
+  }, [data]);
 
   const renderDetails = () => {
     const current = data[0];

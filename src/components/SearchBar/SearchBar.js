@@ -84,6 +84,7 @@ const SearchBar = ({ fetchWeather }) => {
           autoFocus={true}
           value={value}
           onChange={(e) => setValue(e.target.value)}
+          placeholder="City name..."
         />
         <button className="search-bar__btn" ref={searchBtn}>
           SEARCH
