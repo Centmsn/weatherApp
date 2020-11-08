@@ -12,6 +12,8 @@
   background-color: $blue;
 
   border-top: 3px solid darken($blue, 25%);
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .weather-card {
