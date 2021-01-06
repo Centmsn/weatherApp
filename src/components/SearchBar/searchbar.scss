@@ -10,15 +10,17 @@
 
   &__input,
   &__btn {
-    font-size: 1.5rem;
-    border-radius: 10px;
     border: 2px solid black;
-    padding: 4px 10px;
+    border-radius: 10px;
     outline: none;
+
+    font-size: 1.5rem;
+    padding: 4px 10px;
   }
 
   &__input {
     width: 75%;
+
     background-color: rgba(255, 255, 255, 0.507);
 
     &:focus {
@@ -27,12 +29,14 @@
   }
 
   &__btn {
-    min-width: 140px;
-    background: none;
-    transition: 300ms;
     width: 20%;
-    background-color: darken($blue, 30%);
+    min-width: 140px;
+
     color: white;
+    background-color: darken($blue, 30%);
+    background: none;
+
+    transition: 300ms;
 
     cursor: pointer;
 
@@ -43,5 +47,13 @@
 
   &__info {
     font-size: 1.5rem;
+  }
+
+  &__tooltip {
+    height: calc(1rem + 10px);
+    margin-top: 5px;
+
+    color: rgb(54, 54, 54);
+    padding: 0 5px;
   }
 }

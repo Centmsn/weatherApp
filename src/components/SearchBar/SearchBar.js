@@ -8,6 +8,7 @@ import "./searchbar.css";
 const SearchBar = ({ fetchWeather }) => {
   const { value, setValue } = useContext(SearchContext);
   const [firstSearch, setfirstSearch] = useState(true);
+  const [tooltipMessage, setTooltipMessage] = useState("");
   const searchBtn = useRef(null);
   const mainBar = useRef(null);
   const welcomeInfo = useRef(null);
@@ -34,6 +35,13 @@ const SearchBar = ({ fetchWeather }) => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+
+    if (!value) {
+      const message = "Please enter city name";
+      setTooltipMessage(message);
+
+      return;
+    }
 
     const bar = mainBar.current;
     const info = welcomeInfo.current;
@@ -66,6 +74,16 @@ const SearchBar = ({ fetchWeather }) => {
     setValue("");
   };
 
+  const handleInputChange = (e) => {
+    const val = e.target.value;
+
+    if (val.length >= 1) {
+      setTooltipMessage("");
+    }
+
+    setValue(val);
+  };
+
   const renderWelcomeInfo = () => {
     return (
       <div className="search-bar__info" ref={welcomeInfo}>
@@ -73,6 +91,13 @@ const SearchBar = ({ fetchWeather }) => {
       </div>
     );
   };
+
+  const errorStyle = tooltipMessage
+    ? {
+        border: "2px solid rgb(150, 20,20)",
+        backgroundColor: "rgba(110,20,20,0.2)",
+      }
+    : null;
 
   return (
     <div className="search-bar" ref={mainBar}>
@@ -83,13 +108,15 @@ const SearchBar = ({ fetchWeather }) => {
           className="search-bar__input"
           autoFocus={true}
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e) => handleInputChange(e)}
           placeholder="City name..."
+          style={errorStyle}
         />
         <button className="search-bar__btn" ref={searchBtn}>
           SEARCH
         </button>
       </form>
+      <div className="search-bar__tooltip">{tooltipMessage}</div>
     </div>
   );
 };
