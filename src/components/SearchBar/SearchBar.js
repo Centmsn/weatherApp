@@ -8,14 +8,16 @@ import "./searchbar.css";
 const SearchBar = ({ fetchWeather }) => {
   const { value, setValue } = useContext(SearchContext);
   const [firstSearch, setfirstSearch] = useState(true);
-  const [tooltipMessage, setTooltipMessage] = useState("");
-  const searchBtn = useRef(null);
-  const mainBar = useRef(null);
-  const welcomeInfo = useRef(null);
+  const [inputError, setInputError] = useState(false);
+  const searchBtnRef = useRef(null);
+  const mainBarRef = useRef(null);
+  const welcomeInfoRef = useRef(null);
+  const inputRef = useRef(null);
+  const tooltipRef = useRef(null);
 
   useEffect(() => {
-    const bar = mainBar.current;
-    const btn = searchBtn.current;
+    const bar = mainBarRef.current;
+    const btn = searchBtnRef.current;
     const tl = gsap.timeline();
     const getScreenCenter = () => window.innerHeight / 2;
 
@@ -37,14 +39,27 @@ const SearchBar = ({ fetchWeather }) => {
     e.preventDefault();
 
     if (!value) {
-      const message = "Please enter city name";
-      setTooltipMessage(message);
+      setInputError(true);
+
+      const input = inputRef.current;
+      const tooltip = tooltipRef.current;
+
+      gsap.to(input, {
+        border: "2px solid red",
+        yoyo: true,
+        repeat: 3,
+      });
+
+      if (!inputError) {
+        gsap.set(tooltip, { y: 25, autoAlpha: 0 });
+        gsap.to(tooltip, { y: 0, autoAlpha: 1, duration: 0.2 });
+      }
 
       return;
     }
 
-    const bar = mainBar.current;
-    const info = welcomeInfo.current;
+    const bar = mainBarRef.current;
+    const info = welcomeInfoRef.current;
     const weather = document.querySelector(".weather-container");
 
     //   if first search move bar to the top
@@ -78,7 +93,9 @@ const SearchBar = ({ fetchWeather }) => {
     const val = e.target.value;
 
     if (val.length >= 1) {
-      setTooltipMessage("");
+      const tooltip = tooltipRef.current;
+      gsap.to(tooltip, { y: 25, autoAlpha: 0, duration: 0.2 });
+      setInputError(false);
     }
 
     setValue(val);
@@ -86,13 +103,13 @@ const SearchBar = ({ fetchWeather }) => {
 
   const renderWelcomeInfo = () => {
     return (
-      <div className="search-bar__info" ref={welcomeInfo}>
+      <div className="search-bar__info" ref={welcomeInfoRef}>
         <p className="search-bar__info-text">I want to check weather in...</p>
       </div>
     );
   };
 
-  const errorStyle = tooltipMessage
+  const errorStyle = inputError
     ? {
         border: "2px solid rgb(150, 20,20)",
         backgroundColor: "rgba(110,20,20,0.2)",
@@ -100,7 +117,7 @@ const SearchBar = ({ fetchWeather }) => {
     : null;
 
   return (
-    <div className="search-bar" ref={mainBar}>
+    <div className="search-bar" ref={mainBarRef}>
       {renderWelcomeInfo()}
       <form className="search-bar__form" onSubmit={handleOnSubmit}>
         <input
@@ -111,18 +128,18 @@ const SearchBar = ({ fetchWeather }) => {
           onChange={(e) => handleInputChange(e)}
           placeholder="City name..."
           style={errorStyle}
+          ref={inputRef}
         />
-        <button className="search-bar__btn" ref={searchBtn}>
+        <button className="search-bar__btn" ref={searchBtnRef}>
           SEARCH
         </button>
       </form>
       <div
         className="search-bar__tooltip"
-        style={
-          tooltipMessage ? { backgroundColor: "rgb(127, 194, 224)" } : null
-        }
+        style={inputError ? { backgroundColor: "rgb(127, 194, 224)" } : null}
+        ref={tooltipRef}
       >
-        {tooltipMessage}
+        Please enter city name
       </div>
     </div>
   );

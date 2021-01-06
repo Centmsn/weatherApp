@@ -1,9 +1,11 @@
 .footer {
-  flex-basis: 100%;
-  display: flex;
-  flex-wrap: wrap;
   height: 5vh;
   max-height: 100px;
+  flex-basis: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+
   color: rgb(199, 199, 199);
 
   &__link {

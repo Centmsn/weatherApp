@@ -55,11 +55,15 @@
   }
 
   &__tooltip {
+    position: absolute;
+
     width: 25%;
     min-width: 175px;
     max-width: 225px;
     height: calc(1rem + 12px);
     margin-top: 5px;
+
+    transform: translateY(100px);
 
     border-radius: 5px;
 
@@ -67,5 +71,7 @@
 
     color: white;
     padding: 3px 5px;
+
+    opacity: 0;
   }
 }
