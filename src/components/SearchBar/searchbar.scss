@@ -3,6 +3,10 @@
 .search-bar {
   flex-basis: 45%;
 
+  border-radius: 5px;
+
+  padding: 15px;
+
   &__form {
     display: flex;
     justify-content: space-between;
@@ -32,9 +36,10 @@
     width: 20%;
     min-width: 140px;
 
+    margin-left: 2px;
+
     color: white;
     background-color: darken($blue, 30%);
-    background: none;
 
     transition: 300ms;
 
@@ -50,10 +55,17 @@
   }
 
   &__tooltip {
-    height: calc(1rem + 10px);
+    width: 25%;
+    min-width: 175px;
+    max-width: 225px;
+    height: calc(1rem + 12px);
     margin-top: 5px;
 
-    color: rgb(54, 54, 54);
-    padding: 0 5px;
+    border-radius: 5px;
+
+    text-align: center;
+
+    color: white;
+    padding: 3px 5px;
   }
 }

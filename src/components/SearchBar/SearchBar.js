@@ -116,7 +116,14 @@ const SearchBar = ({ fetchWeather }) => {
           SEARCH
         </button>
       </form>
-      <div className="search-bar__tooltip">{tooltipMessage}</div>
+      <div
+        className="search-bar__tooltip"
+        style={
+          tooltipMessage ? { backgroundColor: "rgb(127, 194, 224)" } : null
+        }
+      >
+        {tooltipMessage}
+      </div>
     </div>
   );
 };
